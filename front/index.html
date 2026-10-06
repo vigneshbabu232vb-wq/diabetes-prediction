@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Diabetes Checkup</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <div class="background">
+
+        <div class="container">
+
+            <div class="header">
+
+                <div class="icon">
+                    🩺
+                </div>
+
+                <div>
+
+                    <h1>Diabetes Checkup</h1>
+
+                    <p>
+                        AI-powered diabetes risk assessment
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h2>Patient Information</h2>
+
+                <p class="description">
+                    Enter your health information below to check your diabetes risk.
+                </p>
+
+
+                <form id="diabetesForm">
+
+
+                    <div class="form-grid">
+
+
+                        <!-- Pregnancies -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Pregnancies
+                            </label>
+
+                            <input
+                                type="number"
+                                id="Pregnancies"
+                                min="0"
+                                max="17"
+                                value="3"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Glucose -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Glucose
+                            </label>
+
+                            <input
+                                type="number"
+                                id="Glucose"
+                                min="0"
+                                max="200"
+                                value="120"
+                                required
+                            >
+
+                            <span>
+                                mg/dL
+                            </span>
+
+                        </div>
+
+
+                        <!-- Blood Pressure -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Blood Pressure
+                            </label>
+
+                            <input
+                                type="number"
+                                id="BloodPressure"
+                                min="1"
+                                max="122"
+                                value="70"
+                                required
+                            >
+
+                            <span>
+                                mmHg
+                            </span>
+
+                        </div>
+
+
+                        <!-- Skin Thickness -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Skin Thickness
+                            </label>
+
+                            <input
+                                type="number"
+                                id="SkinThickness"
+                                min="0"
+                                max="100"
+                                value="20"
+                                required
+                            >
+
+                            <span>
+                                mm
+                            </span>
+
+                        </div>
+
+
+                        <!-- Insulin -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Insulin
+                            </label>
+
+                            <input
+                                type="number"
+                                id="Insulin"
+                                min="0"
+                                max="846"
+                                value="79"
+                                required
+                            >
+
+                            <span>
+                                μU/mL
+                            </span>
+
+                        </div>
+
+
+                        <!-- BMI -->
+
+                        <div class="input-group">
+
+                            <label>
+                                BMI
+                            </label>
+
+                            <input
+                                type="number"
+                                step="0.1"
+                                id="BMI"
+                                min="0"
+                                max="67"
+                                value="20"
+                                required
+                            >
+
+                            <span>
+                                kg/m²
+                            </span>
+
+                        </div>
+
+
+                        <!-- Diabetes Pedigree -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Diabetes Pedigree Function
+                            </label>
+
+                            <input
+                                type="number"
+                                step="0.01"
+                                id="DiabetesPedigreeFunction"
+                                min="0"
+                                max="2.4"
+                                value="0.47"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Age -->
+
+                        <div class="input-group">
+
+                            <label>
+                                Age
+                            </label>
+
+                            <input
+                                type="number"
+                                id="Age"
+                                min="21"
+                                max="88"
+                                value="33"
+                                required
+                            >
+
+                            <span>
+                                years
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <button type="submit" id="predictButton">
+
+                        Check Diabetes Risk
+
+                    </button>
+
+
+                </form>
+
+
+                <!-- Loading -->
+
+                <div id="loading" class="loading hidden">
+
+                    <div class="spinner"></div>
+
+                    <p>
+                        Analyzing your information...
+                    </p>
+
+                </div>
+
+
+                <!-- Result -->
+
+                <div id="result" class="result hidden">
+
+                    <div class="result-icon" id="resultIcon">
+                        ✓
+                    </div>
+
+                    <h2 id="resultTitle">
+                        Result
+                    </h2>
+
+                    <p id="resultMessage">
+                    </p>
+
+                    <div class="probability">
+
+                        <span>
+                            Diabetes Probability
+                        </span>
+
+                        <strong id="probability">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="progress">
+
+                        <div
+                            id="progressBar"
+                            class="progress-bar"
+                        ></div>
+
+                    </div>
+
+
+                    <button
+                        class="reset-button"
+                        onclick="resetForm()"
+                    >
+
+                        Check Again
+
+                    </button>
+
+                </div>
+
+
+                <div class="disclaimer">
+
+                    ⚠️ This prediction is for educational purposes only
+                    and should not replace professional medical advice.
+
+                </div>
+
+
+            </div>
+
+
+            <div class="footer">
+
+                <p>
+                    Powered by Random Forest Machine Learning
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
